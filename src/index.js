@@ -105,16 +105,17 @@ function Header() {
 function Footer() {
   const hour = new Date().getHours();
   const openHour = 12;
-  const closeHour = 24;
+  const closeHour = 22;
   const isOpen = hour >= openHour && hour < closeHour;
   console.log(isOpen);
-
-  // if (hour >= openHour && hour < closeHour) alert("We are currently open");
-  // else alert("Sorry we are closed");
-
   return (
     <footer className="footer">
-      {new Date().toLocaleString()} We are currently open
+      <div className="order">
+        {isOpen && ( // Conditional rendering
+          <p>we are open until {closeHour}. Please order online or visit us</p>
+        )}
+        <button className="btn">Order now </button>
+      </div>
     </footer>
   );
 }

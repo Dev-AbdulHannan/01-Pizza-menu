@@ -59,21 +59,21 @@ function App() {
 
 function Menu() {
   //Parent Component
+
+  const isPizaData = pizzaData.length;
+
   return (
     <main className="menu">
       <h2>Our Menu</h2>
-      <ul className="pizzas">
-        {pizzaData.map((Piza) => (
-          <Pizza
-            pizzaObj={Piza}
-            key={Piza.name}
-            // name={Pizaobj.name}
-            // ingredients={Pizaobj.ingredients}
-            // photoName={Pizaobj.photoName}
-            // price={Pizaobj.price}
-          />
-        ))}
-      </ul>
+      {isPizaData > 0 ? ( // Conditional rendering using ternary operator
+        <ul className="pizzas">
+          {pizzaData.map((Piza) => (
+            <Pizza pizzaObj={Piza} key={Piza.name} />
+          ))}
+        </ul>
+      ) : (
+        <p>We are still working on our menu please come back later</p>
+      )}
     </main>
   );
 }

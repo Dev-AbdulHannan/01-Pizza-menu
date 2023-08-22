@@ -108,15 +108,27 @@ function Footer() {
   const closeHour = 22;
   const isOpen = hour >= openHour && hour < closeHour;
   console.log(isOpen);
+
   return (
-    <footer className="footer">
-      <div className="order">
-        {isOpen && ( // Conditional rendering
-          <p>we are open until {closeHour}. Please order online or visit us</p>
-        )}
-        <button className="btn">Order now </button>
-      </div>
+    <footer>
+      {isOpen ? (
+        <Order closeHour={closeHour} />
+      ) : (
+        <p>Sorry We are closed Comeback later!</p>
+      )}
     </footer>
+  );
+}
+
+function Order(props) {
+  return (
+    <div className="order">
+      <p>
+        we are open until {props.closeHour}. Please order online or visit us
+      </p>
+
+      <button className="btn">Order now </button>
+    </div>
   );
 }
 

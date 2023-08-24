@@ -66,11 +66,17 @@ function Menu() {
     <main className="menu">
       <h2>Our Menu</h2>
       {isPizaData > 0 ? ( // Conditional rendering using ternary operator
-        <ul className="pizzas">
-          {pizzaData.map((Piza) => (
-            <Pizza pizzaObj={Piza} key={Piza.name} />
-          ))}
-        </ul>
+        <>
+          <p>
+            Authentic Italian cuisine. 6 creative dishes to choose from. All
+            from our stone oven, all organic, all delicious.
+          </p>
+          <ul className="pizzas">
+            {pizzaData.map((Piza) => (
+              <Pizza pizzaObj={Piza} key={Piza.name} />
+            ))}
+          </ul>
+        </>
       ) : (
         <p>We are still working on our menu please come back later</p>
       )}
